@@ -5,7 +5,6 @@
 
 from flask import Flask, request, jsonify, session, redirect, url_for
 from flask_cors import CORS
-from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import and_, text
 import smtplib
 from email.mime.text import MIMEText
@@ -14,11 +13,6 @@ from email.mime.multipart import MIMEMultipart
 app = Flask(__name__)
 app.secret_key = "hello"
 CORS(app)
-
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mssql+pyodbc://MSI/dev?driver=ODBC+Driver+17+for+SQL+Server'
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False  # Optional, disables a warning
-
-db = SQLAlchemy(app)  # Initialize SQLAlchemy with your app
 
 @app.route('/send', methods=['POST'])
 def send_email():
