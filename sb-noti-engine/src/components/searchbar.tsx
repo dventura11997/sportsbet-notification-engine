@@ -9,7 +9,7 @@ function Searchbar() {
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         // Updated URL for production
-        const response = await fetch("http://13.211.126.119:5000/send", {
+        const response = await fetch("/send", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ email: inputValue }),
