@@ -12,7 +12,7 @@ function HomePage() {
                     <img src={SbLogo} alt="Sportsbet" width="300" data-bit="iit"/>
                 </div>
                 <div className="major-heading">
-                  Sportsbet notification engine
+                  Marketing notification engine
                 </div>
                 <Searchbar/>
             </div>
