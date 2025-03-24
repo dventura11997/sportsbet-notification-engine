@@ -9,7 +9,7 @@ function Searchbar() {
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         // Updated URL for production
-        const response = await fetch("/send", {
+        const response = await fetch("https://sportsbet-notification-engine.onrender.com/send", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ email: inputValue }),

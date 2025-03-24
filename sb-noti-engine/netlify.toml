@@ -1,9 +1,8 @@
-# Proxy API requests to Flask backend
+# Handle SPA routing
 [[redirects]]
-  from = "/send"
-  to = "http://13.211.126.119:5000/send"
+  from = "/*"
+  to = "/index.html"
   status = 200
-  force = true
 
 # Fix MIME type for JavaScript files
 [[headers]]
