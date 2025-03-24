@@ -9,11 +9,16 @@ from sqlalchemy import and_, text
 import smtplib
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
+import os
 
 app = Flask(__name__)
 app.secret_key = "hello"
 # Allow requests from your Netlify domain
 CORS(app, origins=["https://mktg-noti-engine.netlify.app"])
+
+# Get the directory where app.py is located
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+EMAIL_TEMPLATE_PATH = os.path.join(BASE_DIR, 'email_template.html')
 
 @app.route('/send', methods=['POST'])
 def send_email():
@@ -22,7 +27,9 @@ def send_email():
     password = "mbkv svhk dtum zzky"
     sent_to = [request_body.get('email')]
     sent_subject = "Sportsbet Email Notification"
-    with open(r'C:\Users\danie\OneDrive\Work\Career\Coding\Folio\Sportsbet notification engine\flask-server\email_template.html', 'r') as file:
+    # with open(r'C:\Users\danie\OneDrive\Work\Career\Coding\Folio\Sportsbet notification engine\flask-server\email_template.html', 'r') as file:
+    # Load the email template from the relative path
+    with open(EMAIL_TEMPLATE_PATH, 'r') as file:
         sent_body = file.read()
 
 

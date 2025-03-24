@@ -1,9 +1,4 @@
-# Handle SPA routing
-[[redirects]]
-  from = "/*"
-  to = "/index.html"
-  status = 200
-  
+# Proxy API requests to Flask backend
 [[redirects]]
   from = "/send"
   to = "http://13.211.126.119:5000/send"
