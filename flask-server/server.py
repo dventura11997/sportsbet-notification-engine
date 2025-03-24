@@ -12,7 +12,8 @@ from email.mime.multipart import MIMEMultipart
 
 app = Flask(__name__)
 app.secret_key = "hello"
-CORS(app)
+# Allow requests from your Netlify domain
+CORS(app, origins=["https://mktg-noti-engine.netlify.app"])
 
 @app.route('/send', methods=['POST'])
 def send_email():
@@ -49,11 +50,14 @@ def send_email():
         # Catch all unexpected errors
         return jsonify({'error': f'An error occurred: {str(e)}'}), 500
     
-
+@app.route('/')
+def home():
+    return "API is running"
     
 
 if __name__ == '__main__':
     # with app.app_context():
     #     db.create_all()
     app.run(debug=True)
+
 
